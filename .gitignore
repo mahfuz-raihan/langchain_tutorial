@@ -1,3 +1,5 @@
 .vscode
 .env
 treee.txt
+.python-version
+pyproject.toml
