@@ -8,8 +8,8 @@ from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 
 
-query = "What is the question about neural networks?"
-print("Question was >>", query)
+query = input("Enter your question: ")
+# print("Question was >>", query)
 text = ["What is loss function in deep learning?", 
          "Explain the concept of overfitting in machine learning.",
          "What is the purpose of dropout in neural networks?",
@@ -17,8 +17,8 @@ text = ["What is loss function in deep learning?",
          "What is the difference between supervised and unsupervised learning?"
          ]
 # print the documents one by one in next line
-for i in range(len(text)):
-    print(f"Q {i+1}:", text[i])
+# for i in range(len(text)):
+#     print(f"Q {i+1}:", text[i])
 
 
 embeddings = HuggingFaceEmbeddings(
