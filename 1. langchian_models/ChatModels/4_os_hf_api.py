@@ -1,15 +1,21 @@
-from langchain_huggingface import HuggingFaceEndpoint, ChatHuggingFace
 import os
 from dotenv import load_dotenv
-load_dotenv()
+from huggingface_hub import login
+from langchain_huggingface import HuggingFaceEndpoint, ChatHuggingFace
 
+load_dotenv(override=True)
+login(os.getenv("HUGGINGFACEHUB_API_TOKEN"))
 llm = HuggingFaceEndpoint(
-    repo_id="TinyLlama/TinyLlama-1.1B-Chat-v1.0",
-    task="conversational",
-    huggingfacehub_api_token=os.getenv("HUGGINGFACEHUB_API_TOKEN"),
+    repo_id= "openai/gpt-oss-20b", # "deepseek-ai/DeepSeek-R1-0528"
+    task="text-generation",
+    max_new_tokens=512,
+    do_sample=False,
+    repetition_penalty=1.03,
+    provider="auto",
 )
 
-chat = ChatHuggingFace(llm=llm)
-resp = chat.invoke([("user", "What is the capital of Bangladesh?")])
-print(resp.content)
+chat_model = ChatHuggingFace(llm=llm)
+response = chat_model.invoke("What is the capital of Bangladesh?")
+print(response.content)
+
 
