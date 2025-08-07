@@ -11,7 +11,6 @@ embeddings = HuggingFaceEmbeddings(
     model_kwargs={"device": "cpu"},
     cache_folder="C:/Users/BS01519/OneDrive - Brain Station 23/Desktop/rag_app/huggingface_cache",
     encode_kwargs={"normalize_embeddings": False},
-    dimensions=384,
 )
 text = "What is loss function in deep learning?"
 embedding = embeddings.embed_query(text)
