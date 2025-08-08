@@ -8,17 +8,18 @@ from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 
 
-query = input("Enter your question: ")
+query = input("User: ")
 # print("Question was >>", query)
-text = ["What is loss function in deep learning?", 
-         "Explain the concept of overfitting in machine learning.",
-         "What is the purpose of dropout in neural networks?",
-         "How does the backpropagation algorithm work in training neural networks?",
-         "What is the difference between supervised and unsupervised learning?"
+text = ["Nazmussakib is a good person working in NRBC bank in Motijheel, Dhaka.", 
+         "Mahfuz working in a Software company in Dhaka named Brain Station 23.",
+         "Nishan is a good friend of Tusher and Mahfuz.\n Now he working in a FMCG company named Pran-RFL,\nalso a bokacoda lover boy olo",
+         "Tipu working as a IoT engineer now and he has a nice workshop named IoT Bhai.\n and CEO of One Dish party.",
+         "Oh, the SEO man Tusher working on a project in Vivasoft Bangladesh.\nAnd also an SEO expert.\n"
+         "Tusher Mahmood is a good friend of Mahfuz. But not a departmental friend.",
+         "Tamal the CEO of Chapin Group of Industries and IELTS KIT. He's known as faportbaz in his friend circle",
+         "Sadik the friend of 'Bikas', ei biskash tui ja, ami dekhsi...."
          ]
-# print the documents one by one in next line
-# for i in range(len(text)):
-#     print(f"Q {i+1}:", text[i])
+
 
 
 embeddings = HuggingFaceEmbeddings(
@@ -29,7 +30,6 @@ embeddings = HuggingFaceEmbeddings(
 )
 
 
-
 doc_embedding = embeddings.embed_documents(text)
 query_embedding = embeddings.embed_query(query)
 
@@ -37,4 +37,7 @@ cosine_sim = cosine_similarity([query_embedding], doc_embedding)[0]
 
 index, score = sorted(list(enumerate(cosine_sim)), key=lambda x: x[1])[-1]
 
-print("Then answer is >>", text[index])
+
+
+
+print("Agent:", text[index])
