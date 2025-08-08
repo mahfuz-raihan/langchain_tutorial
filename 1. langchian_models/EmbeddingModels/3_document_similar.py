@@ -29,7 +29,6 @@ embeddings = HuggingFaceEmbeddings(
     encode_kwargs={"normalize_embeddings": False},
 )
 
-
 doc_embedding = embeddings.embed_documents(text)
 query_embedding = embeddings.embed_query(query)
 

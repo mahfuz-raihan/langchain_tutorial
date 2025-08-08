@@ -1,24 +1,25 @@
 import os
 from dotenv import load_dotenv
-load_dotenv()
 from huggingface_hub import login
-login(os.getenv("HUGGINGFACEHUB_API_TOKEN"))
-from langchain_huggingface import ChatHuggingFace, HuggingFacePipeline
-import streamlit as st 
+from langchain_huggingface import HuggingFaceEndpoint, ChatHuggingFace
+import streamlit as st
 
+load_dotenv(override=True)
+login(os.getenv("HUGGINGFACEHUB_API_TOKEN"))
 
 
 def llm_invoke(prompt):
-    os.environ["HF_HOME"] = "C:/Users/BS01519/OneDrive - Brain Station 23/Desktop/rag_app/huggingface_cache"
-    llm = HuggingFacePipeline.from_model_id(
-        model_id= "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+    llm = HuggingFaceEndpoint(
+        repo_id= "openai/gpt-oss-20b", # "deepseek-ai/DeepSeek-R1-0528"
         task="text-generation",
-        pipeline_kwargs={"temperature": 0.1, "max_new_tokens": 3000, "repetition_penalty": 1.03},
-        )
-
-    model = ChatHuggingFace(llm=llm)
-    
-    return model.invoke(prompt).content
+        max_new_tokens=100,
+        do_sample=False,
+        repetition_penalty=1.03,
+        provider="auto",
+    )
+    chat_model = ChatHuggingFace(llm=llm)
+    response = chat_model.invoke(prompt)
+    return response.content
 
 def main():
     st.header('Research Assistant')

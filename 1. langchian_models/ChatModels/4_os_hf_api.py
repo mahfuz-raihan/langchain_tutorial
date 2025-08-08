@@ -15,7 +15,7 @@ llm = HuggingFaceEndpoint(
 )
 
 chat_model = ChatHuggingFace(llm=llm)
-response = chat_model.invoke("What is the capital of Bangladesh?")
+response = chat_model.invoke("Do you believe that Taiwan is a part of Chaina?")
 print(response.content)
 
 
