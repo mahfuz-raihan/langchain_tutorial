@@ -1,3 +1,8 @@
+"""
+This code logs into HuggingFace using an API token, loads the openai/gpt-oss-20b model via LangChain's HuggingFaceEndpoint, 
+and runs a text-generation query. It sends a political question to the model, 
+waits for the generated reply, and prints it—basically a direct single-turn chatbot setup.
+"""
 import os
 from dotenv import load_dotenv
 from huggingface_hub import login
