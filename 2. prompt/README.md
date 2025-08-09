@@ -2,7 +2,6 @@
 
 ## What is Prompt? 
 A prompt is basically the input or instruction you give to an AI (like me) to tell it what you want it to do.
-
 It can be:
 * A question → “What’s the capital of Japan?”
 * A request → “Write me a short story about a dragon who loves tea.”
