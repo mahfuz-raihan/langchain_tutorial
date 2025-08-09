@@ -1,6 +1,6 @@
 .vscode
 .env
-treee.txt
+*.txt
 .python-version
 pyproject.toml
 huggingface_cache/
