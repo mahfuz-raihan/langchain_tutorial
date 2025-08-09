@@ -26,8 +26,8 @@ prompt_template = load_prompt('prompt_template.json')
 
 def main():
     # Streamlit app setup
-    st.set_page_config(page_title="Research Assistant", page_icon=":book:")
-    st.header('Research Assistant')
+    st.set_page_config(page_title="Research Assistant", page_icon="📕")
+    st.header('Research Assistant 📖')
     paper_input = st.selectbox(
         "Select Research Paper Name", 
             [
