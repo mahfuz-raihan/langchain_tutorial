@@ -129,29 +129,29 @@ Text Out│     Message│Out   Vector│Out
 ## How They Work Together in RAG (Retrieval-Augmented Generation)
 ```mathematica
          ┌──────────────────────┐
-         │ User Query           │
+         │      User Query      │
          └──────────────────────┘
                     │
                     ▼
         ┌───────────────────────────┐
-        │ Embedding Model           │
+        │      Embedding Model      │
         │ (e.g., OpenAIEmbeddings)  │
         └───────────────────────────┘
                     │
                     ▼
         ┌───────────────────────────┐
-        │ Vector Store              │
+        │       Vector Store        │
         │ (FAISS / Pinecone / etc.) │
         └───────────────────────────┘
                     │ Retrieved Docs
                     ▼
         ┌───────────────────────────┐
-        │ LLM / ChatModel           │
+        │      LLM / ChatModel      │
         │ (Generates final answer)  │
         └───────────────────────────┘
                     │
                     ▼
          ┌──────────────────────┐
-         │ Final Response       │
+         │    Final Response    │
          └──────────────────────┘
 ```
