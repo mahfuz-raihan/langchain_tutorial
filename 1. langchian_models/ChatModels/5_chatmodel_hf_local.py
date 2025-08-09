@@ -1,3 +1,12 @@
+"""
+This script logs into HuggingFace, sets a custom local cache path, 
+loads TinyLlama 1.1B via LangChain's HuggingFacePipeline for text-generation, and runs a chat query. 
+It uses a low temperature and high token limit for detailed output, 
+then prints the model's opinion—simple local caching with chat setup.
+"""
+
+
+
 import os
 from dotenv import load_dotenv
 load_dotenv()
