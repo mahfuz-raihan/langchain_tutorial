@@ -30,4 +30,5 @@ There is 3 type of ```data_format``` we can use in  ```LangChain```:
 * It does not validate data at runtime (it just helps with type hints for better coding.)
 
 
-### ****
+### **2. Pydantic**
+```pydantic``` is a data validation and data parsing library for python, it ensures that the data you work with is correct, structured and type-safe.
