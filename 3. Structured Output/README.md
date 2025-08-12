@@ -28,3 +28,6 @@ There is 3 type of ```data_format``` we can use in  ```LangChain```:
 **Why use TypedDict?**
 * It tells python what keys are required and what type of values they should have.
 * It does not validate data at runtime (it just helps with type hints for better coding.)
+
+
+### ****
