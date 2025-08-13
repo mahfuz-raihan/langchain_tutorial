@@ -79,3 +79,31 @@ result = llm_chain.run(input_text)
 # Print the structured output
 print(result)
 ```
+```mathematica
+                 LangChain Structured Output
+                           │
+        ┌──────────────────┴──────────────────┐
+        │                                     │
+Use with `with_structured_output()`?       Alternative Approach
+        │                                     │
+        │                                     │
+   ┌────┴─────┐                   ┌───────────┴───────────┐
+   │          │                   │                       │
+ Yes         No                  HuggingFace / Other     Text-only / Regex
+   │          │                   Transformers            Parsing
+   │          │                       │                       │
+   │          │                       │                       │
+   │   ❌ Not Supported            JSON Prompt +         Extract info from
+   │   Raises NotImplementedError   json.loads()         raw text output
+   │          │                       │                       │
+   │          │                  Optional: Pydantic       Optional: Output
+   │          │                  validation               parsers (StructuredOutputParser)
+   │
+Supported Models:
+- OpenAI: gpt-4, gpt-4-32k, gpt-3.5-turbo
+- Anthropic: claude-1, claude-2
+- Mistral / APIs with function calling
+```
+
+## A short Diagram of Structured Output
+![Image](llm_image_mahfuz_raihan.jpeg)
