@@ -32,3 +32,51 @@ There is 3 type of ```data_format``` we can use in  ```LangChain```:
 
 ### **2. Pydantic**
 ```pydantic``` is a data validation and data parsing library for python, it ensures that the data you work with is correct, structured and type-safe.
+
+Importantly, it allows you to define models that can be used to validate and parse data, ensuring that the data adheres to a specific structure.
+> *But pydentic with_structured_output() function is used to define a schema for the output of a model, ensuring that the response adheres to a specific structure. It can only be used with models that support structured output, like OpenAI's GPT-4o.*
+
+### **3. JSON Schema**
+```json_schema``` is a way to define the structure of JSON data, specifying what properties it should have, their types, and any constraints. 
+It helps ensure that JSON data is valid and follows a specific format.
+
+### **Example of Structured Output using HuggingFace Model**
+```python
+from langchain import HuggingFacePipeline
+from langchain.output_parsers import JsonOutputParser
+from langchain.schema import BaseOutputParser
+from langchain.prompts import PromptTemplate
+from langchain.chains import LLMChain
+from langchain.output_parsers import with_structured_output
+from langchain.schema import BaseModel, Field
+from typing import TypedDict
+from typing_extensions import Annotated
+from transformers import pipeline
+# Load the HuggingFace model
+pipe = pipeline("text2text-generation", model="google/flan-t5-base")
+# Define the output schema using TypedDict
+class MyOutput(TypedDict):
+    name: str
+    age: int
+    hobbies: list[str]
+# Create the HuggingFace pipeline
+hf_pipeline = HuggingFacePipeline(pipeline=pipe)
+# Define the prompt template
+prompt_template = PromptTemplate(
+    input_variables=["input"],
+    template="Extract the name, age, and hobbies from the following text: {input}"
+)
+# Create the output parser
+output_parser: BaseOutputParser = with_structured_output(JsonOutputParser(pydantic_object=MyOutput))
+# Create the LLM chain with structured output
+llm_chain = LLMChain(
+    llm=hf_pipeline,
+    prompt=prompt_template,
+    output_parser=output_parser
+)
+# Run the chain with an example input
+input_text = "My name is Alice, I am 30 years old, and I love hiking and reading."
+result = llm_chain.run(input_text)
+# Print the structured output
+print(result)
+```
