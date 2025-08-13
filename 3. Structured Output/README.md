@@ -44,11 +44,10 @@ It helps ensure that JSON data is valid and follows a specific format.
 ```python
 from langchain import HuggingFacePipeline
 from langchain.output_parsers import JsonOutputParser
-from langchain.schema import BaseOutputParser
+from langchain.schema import BaseOutputParser, BaseModel, Field
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 from langchain.output_parsers import with_structured_output
-from langchain.schema import BaseModel, Field
 from typing import TypedDict
 from typing_extensions import Annotated
 from transformers import pipeline
