@@ -1,4 +1,4 @@
-# Langchain tutorial
+# LangChain Tutorial
 
 Instruction
 
@@ -19,4 +19,13 @@ As free and open source platform, most of the time we use to implement the code 
     * Convertation with user history
     * Design prompt template
     * Design chat template
+3. [Structured Output](https://github.com/mahfuz-raihan/langchain_tutorial/tree/main/3.%20Structured%20Output)
+    * typeDict
+    * Pydantic
+    * json_schema
+4. [Output Parser](https://github.com/mahfuz-raihan/langchain_tutorial/tree/main/4.%20Output%20Parsers)
+    * Structed Output Parser
+    * Json Output Parser
+    * pydantic Output Parser
+    * String output Parser
 
