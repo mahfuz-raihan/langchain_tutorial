@@ -1,6 +1,8 @@
 # Output Parsers in LangChain
 Output parsers are a crucial component in LangChain, allowing users to convert the raw output from language models into structured data formats. This is particularly useful when working with complex data types or when the output needs to be processed further.
 
+```output parsers``` in Langchian help convert raw LLM responses into structured formats like JSON, CSV, Pydantic models, or custom objects. They ensure consistency, validation and ease of use in applications that require structured data.
+
 ## Overview
 Output parsers take the raw text output from a language model and transform it into a more usable format, such as JSON, dictionaries, or custom objects. This transformation is essential for applications that require structured data for further processing or analysis.
 
