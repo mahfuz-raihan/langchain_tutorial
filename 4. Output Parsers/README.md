@@ -50,4 +50,4 @@ Supported Models:
 - Mistral / APIs with function calling
 ```
 ## A short Diagram of Structured Output
-![Mahfuz Raihan Image](llm_image_mahfuz_raihan.jpeg)
+![Mahfuz Raihan Image](mahfuz_raihan_langchain_outputparser.png)
