@@ -160,3 +160,57 @@ Creating a chain in LangChain involves defining a sequence of operations and lin
                 | StrOutputParserOutput |
                 +-----------------------+
 ```
+### Example of a Graph Chain: Conditional Chain
+```mathematica
+            +-----------------------------+
+            | Conditional<sentiment>Input |
+            +-----------------------------+
+                        *
+                        *
+                        *
+                +----------------+
+                | PromptTemplate |
+                +----------------+
+                        *
+                        *
+                        *
+                +-----------------+
+                | ChatHuggingFace |
+                +-----------------+
+                        *
+                        *
+                        *
+                +-----------------+
+                | StrOutputParser |
+                +-----------------+
+                        *
+                        *
+                        *                *
++-----------------------+        +-----------------------+
+| StrOutputParserOutput |        | StrOutputParserOutput |
++-----------------------+        +-----------------------+
+                        *                *
+                        *                *
+                        *                *
+                +----------------+  +----------------+
+                | PromptTemplate |  | PromptTemplate |
+                +----------------+  +----------------+
+                        *                *
+                        *                *
+                        *                *
+                +-----------------+  +-----------------+
+                | ChatHuggingFace |  | ChatHuggingFace |
+                +-----------------+  +-----------------+
+                        *                *
+                        *                *
+                        *                *
+                +-----------------+  +-----------------+
+                | StrOutputParser |  | StrOutputParser |
+                +-----------------+  +-----------------+
+                            *              *
+                            *              *
+                            *              *
+                    +------------------------------+
+                    | Conditional<sentiment>Output |
+                    +------------------------------+
+```
