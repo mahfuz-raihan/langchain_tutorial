@@ -22,6 +22,7 @@ Creating a chain in LangChain involves defining a sequence of operations and lin
 
 ## View of graph chain 
 
+### Example of a Graph Chain: Sequential Chain
 ```mathematica
      +-------------+       
      | PromptInput |
@@ -103,4 +104,59 @@ Creating a chain in LangChain involves defining a sequence of operations and lin
 +-----------------------+
 | StrOutputParserOutput |
 +-----------------------+
+```
+
+### Example of a Graph Chain: Parallel Chain
+```mathematica
+            +---------------------------+
+            | Parallel<notes,quiz>Input |
+            +---------------------------+
+                ***               ***
+            ***                     ***
+        **                              **
++----------------+                    +----------------+
+| PromptTemplate |                    | PromptTemplate |
++----------------+                    +----------------+
+          *                                   *
+          *                                   *
+          *                                   *
++-----------------+                  +-----------------+
+| ChatHuggingFace |                  | ChatHuggingFace |
++-----------------+                  +-----------------+
+          *                                   *
+          *                                   *
+          *                                   *
++-----------------+                  +-----------------+
+| StrOutputParser |                  | StrOutputParser |
++-----------------+                  +-----------------+
+                  ***               ***
+                     ***         ***
+                        **     **
+             +----------------------------+
+             | Parallel<notes,quiz>Output |
+             +----------------------------+
+                            *
+                            *
+                            *
+                   +----------------+
+                   | PromptTemplate |
+                   +----------------+
+                            *
+                            *
+                            *
+                  +-----------------+
+                  | ChatHuggingFace |
+                  +-----------------+
+                            *
+                            *
+                            *
+                  +-----------------+
+                  | StrOutputParser |
+                  +-----------------+
+                            *
+                            *
+                            *
+                +-----------------------+
+                | StrOutputParserOutput |
+                +-----------------------+
 ```
