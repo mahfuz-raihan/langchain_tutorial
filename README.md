@@ -28,4 +28,8 @@ As free and open source platform, most of the time we use to implement the code 
     * Json Output Parser
     * pydantic Output Parser
     * String output Parser
+5. [Chains](https://github.com/mahfuz-raihan/langchain_tutorial/tree/main/5.%20Chains)
+    * Simple Chain
+    * Sequential Chain
+    * Conditional Chain
 
