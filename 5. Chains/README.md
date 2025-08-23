@@ -214,3 +214,19 @@ Creating a chain in LangChain involves defining a sequence of operations and lin
                     | Conditional<sentiment>Output |
                     +------------------------------+
 ```
+
+### Chains in LangChain
+In LangChain, chains can be created using the `Chain` class or by using predefined chains. Here’s an example of how to create a simple chain using LangChain:
+
+|**Chian Name**|**Description**|
+|--------------|---------------|
+|LLMChain |A basic chain that connects a prompt to a model and then to an output parser.|
+|SequentialChain |A chain that executes a series of operations in a specific order, passing outputs from one step to the next.|
+|SimpleSequentialChain |A simplified version of SequentialChain for straightforward workflows.|
+|RouterChain |A chain that routes inputs to different sub-chains based on certain conditions.|
+|ConversationalRetrievalChain |A chain designed for managing conversational interactions, maintaining context across multiple turns.|
+|RetrievalQAChain |A chain that combines retrieval and question answering, allowing for more informed responses.|
+|MultiPromptChain |A chain that can handle multiple prompts, useful for scenarios requiring diverse inputs.|
+|HydeChain (Hypothetical Document Embedding) |A chain that generates hypothetical documents to enhance retrieval and response quality.|
+|AgentExecutorChian |A chain that executes a series of actions based on agent decisions, often used in more complex applications.|
+|SQLDatabaseChain |A chain that interacts with SQL databases, allowing for querying and data manipulation.|
