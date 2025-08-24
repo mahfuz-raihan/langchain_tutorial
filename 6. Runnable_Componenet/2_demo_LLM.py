@@ -13,7 +13,7 @@ class DemoLLM():
 
         return {'response': random.choice(response_list)}
     
-llm = DemoLLM()
+# llm = DemoLLM()
 
 class DemoPromptTemplate():
     def __init__(self, template, input_variables):
@@ -28,6 +28,20 @@ template = DemoPromptTemplate(
     input_variables=['length','topic']
 )
 
-prompt = template.format({'topic':'Bangladesh','length':'short'})
-reply = llm.predict(prompt=prompt)
-print(reply)
+class LLMChain:
+    def __init__(self, llm, prompt):
+        self.prompt = prompt
+        self.llm = llm
+    
+    def run(self, input_dict):
+        final_prompt = self.prompt.format(input_dict)
+        result = self.llm.predict(final_prompt)
+
+        return result['response']
+
+llm = DemoLLM()
+chain = LLMChain(llm,template)
+print(chain.run({'topic':'Bangladesh','length':'short'}))
+# prompt = template.format({'topic':'Bangladesh','length':'short'})
+# reply = llm.predict(prompt=prompt)
+# print(reply)
