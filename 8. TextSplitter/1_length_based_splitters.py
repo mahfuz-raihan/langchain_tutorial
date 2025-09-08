@@ -1,16 +1,3 @@
-# import os
-# from dotenv import load_dotenv
-# from huggingface_hub import login
-# from langchain_huggingface import HuggingFaceEndpoint, ChatHuggingFace
-# from langchain_core.prompts import PromptTemplate
-# from langchain_core.output_parsers import StrOutputParser
-# from langchain.schema.runnable import RunnableParallel
-# from langchain_community.document_loaders import PyMuPDFLoader
-
-# load_dotenv(override=True)
-# login(os.getenv("HUGGINGFACEHUB_API_TOKEN"))
-# print("Login successfully complete.........")
-
 from langchain_text_splitters import CharacterTextSplitter
 
 text = """
