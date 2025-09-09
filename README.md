@@ -42,5 +42,7 @@ As free and open source platform, most of the time we use to implement the code 
     * CSV Loader
     * Unstructured File Loader
 8. [TextSplitter](https://github.com/mahfuz-raihan/langchain_tutorial/tree/main/8.%20TextSplitter)
+    * character Text Splitter
+    * Recursive Text Splitter
 
 
