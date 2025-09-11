@@ -9,3 +9,4 @@ This directory contains implementations of various text splitting strategies use
 - **LanguageAwareTextSplitter**: Utilizes language-specific rules to split text more intelligently based on linguistic features.
 - **CustomTextSplitter**: A base class that can be extended to create custom text splitting strategies.
 - **SpacyTextSplitter**: Uses the SpaCy library to split text based on linguistic features such as sentences and paragraphs.
+- **NLTKTextSplitter**: Leverages the NLTK library to perform text splitting based on natural language processing techniques.
