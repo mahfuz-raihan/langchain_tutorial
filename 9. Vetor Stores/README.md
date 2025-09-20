@@ -25,6 +25,7 @@ Vector stores allow for efficient similarity search and retrieval of data based 
 - **Personalization**: Deliver personalized content and recommendations based on user preferences.
 - **Data Analysis**: Analyze large datasets by clustering and categorizing based on vector representations.
 - **Image/Multimedia search**: Retrieve similar images or multimedia content based on visual features.
+- **Knowledge Bases**: Store and retrieve knowledge in a structured vector format for efficient querying.
 
 ## Available Vector Stores
 - **Chroma**: A fast and efficient vector store that supports various distance metrics and is optimized for large-scale datasets.
