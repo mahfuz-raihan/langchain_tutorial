@@ -39,3 +39,7 @@ Vector stores allow for efficient similarity search and retrieval of data based 
 - **Zilliz**: A vector database designed for AI applications, providing high-performance vector search capabilities.
 - **Vectara**: A vector search engine that offers scalable and efficient vector storage and retrieval.
 - **Lancedb**: A vector database that provides efficient storage and retrieval of high-dimensional
+
+
+
+## Vector Store vs vector database
