@@ -23,3 +23,25 @@ Retrievers can work with various data sources, including:
 
 ## Diagram of the retrivers in langchain
 ![image](mahfuz_raihan_langchain_retrivers_tutorial.png)
+
+
+
+## Some of the Retrivers in LangChain
+
+### 1. Wikipedia Retriever
+The Wikipedia Retriever allows you to fetch information from Wikipedia articles. It can be used to answer questions based on the content of Wikipedia.
+
+### How it works:
+1. We give it a query (e.g., "What is the capital of France?").
+2. It sends the query to the Wikipedia API.
+3. It retrivers the ```most relevant articles```.
+4. It returns them as LangChain ```Document``` objects.
+
+### 2. Vector Store Retriever:
+The Vector Store Retriever uses vector embeddings to find similar documents based on their semantic meaning. It is particularly useful for unstructured data like text, images, or audio.
+
+### How it works:
+1. We give it a query (e.g., "What is the capital of France?").
+2. It converts the query into a vector using an embedding model.
+3. It searches the vector store for documents with similar vectors.
+4. It returns the most relevant documents as LangChain ```Document``` objects.
