@@ -6,7 +6,6 @@ print("Necessary Librariy imported successfully.....")
 retrivers = WikipediaRetriever(top_k_results=2, lang='en')
 
 # define the query
-
 query = "the geopolitical history of Bangladesh and Pakistan from the perspective of a chinese."
 
 docs = retrivers.invoke(query)
