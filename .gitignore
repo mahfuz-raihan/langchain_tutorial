@@ -1,3 +1,4 @@
+*.ipynb
 metiq/
 .vscode
 .env
