@@ -12,7 +12,8 @@ from langchain_community.vectorstores import FAISS
 from langchain_core.prompts import PromptTemplate
 login(os.getenv("HUGGINGFACEHUB_API_TOKEN"))
 
-os.environ["HF_HOME"] = "C:/Users/BS01519/OneDrive - Brain Station 23/Desktop/rag_app/huggingface_cache"
+hf_home = os.getenv("env")
+os.environ["HF_HOME"] = os.getenv("env")
 
 ask = input("Ask a question: ")
 youtube_url = input("Youtube URL: ")
@@ -28,7 +29,7 @@ try:
     embeddings = HuggingFaceEmbeddings(
         model_name="sentence-transformers/all-MiniLM-L6-v2",
         model_kwargs={"device": "cpu"},
-        cache_folder="C:/Users/BS01519/OneDrive - Brain Station 23/Desktop/rag_app/huggingface_cache",
+        cache_folder=hf_home,
         encode_kwargs={"normalize_embeddings": False},
     )
     vector_store = FAISS.from_documents(chunks, embeddings)
