@@ -53,5 +53,57 @@ def process_video_transcript(video_id: str):
     except (NoTranscriptFound, TranscriptsDisabled) as e:
         print(f"No captions available for this video | Error -> \n{e}")
         return None
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return None
 
+def create_rag_chain(retrivers: FAISS):
+    """
+    Create the complete RAG chain.
+    """
 
+    # define the LLM from HugginegFace
+    llm = HuggingFaceEndpoint(
+        repo_id="mistralai/Mistral-7B-Instruct-v0.2",
+        task="text-generation",
+        max_new_tokens=512,
+        do_sample=False,
+        repetition_penalty=1.03,
+        temperature=0.1,
+    )
+    chat_model = ChatHuggingFace(llm=llm)
+
+    # Define the prompt template
+    prompt_template = """
+    You are a helpful assistant who answers questions based ONLY on the provided video transcript context.
+    Your answer should be concise and directly address the user's question.
+    If the context is insufficient to answer the question, you MUST say 'I do not have enough information from the video to answer that.'
+
+    CONTEXT:
+    {context}
+
+    QUESTION:
+    {question}
+
+    ANSWER:
+    """
+    prompt = PromptTemplate(
+        template=prompt_template,
+        input_variables=["context", "question"],
+    )
+
+    # Define how to format the retrieved documents into a single context string
+    def format_docs(retrieved_documents):
+        context = "\n\n".join(doc.page_content for doc in retrieved_documents)
+        return context
+
+    # Define the chain that runs in parallel to fetch context and pass the question
+    parallel_chain = RunnableParallel({
+        "context": retrivers | RunnableLambda(format_docs),
+        "question": RunnablePassthrough()
+    })
+
+    # The final chain that pieces everything together
+    parser = StrOutputParser()
+    main_chain = parallel_chain | prompt | chat_model | parser
+    return main_chain
