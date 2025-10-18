@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
 load_dotenv()
+import utils
 from huggingface_hub import login
 from youtube_transcript_api import YouTubeTranscriptApi, TranscriptsDisabled
 from langchain_core.runnables import RunnableParallel, RunnablePassthrough, RunnableLambda
@@ -14,14 +15,12 @@ login(os.getenv("HUGGINGFACEHUB_API_TOKEN"))
 os.environ["HF_HOME"] = "C:/Users/BS01519/OneDrive - Brain Station 23/Desktop/rag_app/huggingface_cache"
 
 ask = input("Ask a question: ")
-video_id = "hmtuvNfytjM"
-
+youtube_url = input("Youtube URL: ")
+video_id = utils.get_youtube_video_id(youtube_url)
 
 
 try:
     transcripts_list = YouTubeTranscriptApi().fetch(video_id, languages=['en'])
-    # print(transcripts_list[:2])
-
     transcripts = " ".join(snipper.text for snipper in transcripts_list)
     # print(transcripts)
     splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
