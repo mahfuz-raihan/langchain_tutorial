@@ -28,27 +28,27 @@ def get_youtube_video_id(url: str) -> str | None:
         print(f"Error happen: {e}")
         return None
 
-# ----- Example Usage -----
-if __name__ == "__main__":
-    test_url = [
-        "https://youtu.be/hmtuvNfytjM",
-        "https://www.youtube.com/watch?v=hmtuvNfytjM",
-        "https://www.youtube.com/embed/hmtuvNfytjM",
-        "https://www.youtube.com/v/hmtuvNfytjM",
-        "https://www.youtube.com/watch?v=hmtuvNfy",
-        "https://youtu.be/y6120QOlsfU",
-        "https://www.youtube.com/embed/9bZkp7q19f0",
-        "https://www.youtube.com/watch?v=JcEI5tvzZwQ&t=37977s",
-        "http://www.youtube.com/watch?v=0zM3nApSvMg&feature=feedrec_grec_index",
-        "not a valid url",
-        12345,
-        "https://www.google.com"
-    ]
-    print("---- Testing YouTube Video ID Extractor ----")
-    for url in test_url:
-        video_id = get_youtube_video_id(url)
-        if video_id:
-            print(f"Success! Video ID for '{url}': '{video_id}'")
-        else:
-            print(f"Failed to extract video ID from '{url}'")
-    print("---- Testing Complete ----")
+# # ----- Example Usage -----
+# if __name__ == "__main__":
+#     test_url = [
+#         "https://youtu.be/hmtuvNfytjM",
+#         "https://www.youtube.com/watch?v=hmtuvNfytjM",
+#         "https://www.youtube.com/embed/hmtuvNfytjM",
+#         "https://www.youtube.com/v/hmtuvNfytjM",
+#         "https://www.youtube.com/watch?v=hmtuvNfy",
+#         "https://youtu.be/y6120QOlsfU",
+#         "https://www.youtube.com/embed/9bZkp7q19f0",
+#         "https://www.youtube.com/watch?v=JcEI5tvzZwQ&t=37977s",
+#         "http://www.youtube.com/watch?v=0zM3nApSvMg&feature=feedrec_grec_index",
+#         "not a valid url",
+#         12345,
+#         "https://www.google.com"
+#     ]
+#     print("---- Testing YouTube Video ID Extractor ----")
+#     for url in test_url:
+#         video_id = get_youtube_video_id(url)
+#         if video_id:
+#             print(f"Success! Video ID for '{url}': '{video_id}'")
+#         else:
+#             print(f"Failed to extract video ID from '{url}'")
+#     print("---- Testing Complete ----")
